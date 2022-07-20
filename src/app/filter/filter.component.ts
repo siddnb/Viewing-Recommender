@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FIELDS } from '../fields';
 import { FormBuilder } from '@angular/forms';
 
 
@@ -9,8 +8,6 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
-
-  fields = FIELDS;
 
   filtersForm = this.fb.group({
     TVorMovie: [''],

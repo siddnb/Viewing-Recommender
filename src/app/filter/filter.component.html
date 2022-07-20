@@ -18,7 +18,7 @@
     <input id="release-date" type="text" formControlName="ReleaseDate">
 
     <p>Complete the form to enable button.</p>
-    <button type="submit" [disabled]="!filtersForm.valid">Submit</button>
+    <button type="submit" [disabled]="!filtersForm.valid" routerLink="/results">Submit</button>
   
 </form>
 
