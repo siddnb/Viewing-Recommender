@@ -17,6 +17,7 @@ export class RecommenderService {
   constructor(private http: HttpClient) { }
 
   getResults(): Observable<Response>{
+    //TODO: Implement error handling
     return this.http.get<Response>(this.filterUrl).pipe(
       tap(_ => console.log('success')));
   }

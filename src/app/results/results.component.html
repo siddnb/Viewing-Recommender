@@ -1,7 +1,8 @@
 <h2>The results</h2>
-<ul>
+<ul *ngIf="results">
   <li *ngFor="let result of results">
-      <p class="badge">{{result.title}}: {{result.description}}</p>
-      <p class="name">{{result.plot}}</p>
+    <!--TODO: Trim title if it has "See full summary" at the end-->
+    <p class="badge">{{result.title}}: {{result.description}}</p>
+    <p class="name">{{result.plot}}</p>
   </li>
 </ul>
