@@ -2,11 +2,22 @@
 
 <form id="filter-form" [formGroup]="filtersForm" (ngSubmit)="onSubmit()">
 
-    <label for="tv-movie">TV Show/Movie: </label>
-    <input id="tv-movie" type="text" formControlName="TVorMovie">
+    <label>
+        <input id = "tv-movie" type="radio" formControlName="TVorMovie" value="tv_series,documentary"> TV Show
+    </label><br>
+    <label>
+        <input id = "tv-movie" type="radio" formControlName="TVorMovie" value="feature,tv_movie"> Movie
+    </label><br>
+
+    <div *ngFor="let choice of genres; let i=index" class="col-md-2">
+        <label>
+          <input type="checkbox" [value]="choice.value" (change)="onCheckChange($event)">
+          {{choice.name}}
+        </label>
+      </div>
   
-    <label for="genre">Genre: </label>
-    <input id="genre" type="text" formControlName="Genre">
+    <!--label for="genre">Genre: </label>
+    <input id="genre" type="text" formControlName="Genre"-->
 
     <label for="rating">Rating: </label>
     <input id="rating" type="text" formControlName="Rating">
@@ -18,7 +29,7 @@
     <input id="release-date" type="text" formControlName="ReleaseDate">
 
     <p>Complete the form to enable button.</p>
-    <button type="submit" [disabled]="!filtersForm.valid" routerLink="/results">Submit</button>
+    <button type="submit" [disabled]="!filtersForm.valid">Submit</button>
   
 </form>
 
