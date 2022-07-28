@@ -18,7 +18,7 @@ export class RecommenderService {
     title_type: '',
     genres: [] as string[],
     user_rating: '',
-    moviemeter: '',
+    runtime: '',
     release_date: ''
   };
 

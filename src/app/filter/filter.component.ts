@@ -16,9 +16,12 @@ export class FilterComponent implements OnInit {
   filtersForm = this.fb.group({
     TVorMovie: '',
     Genre: this.fb.array([]),
-    Rating: '',
-    Runtime: '',
-    ReleaseDate: ''
+    MinRating: '',
+    MaxRating: '',
+    MinRuntime: '',
+    MaxRuntime: '',
+    MinReleaseDate: '',
+    MaxReleaseDate:''
   });
 
   public genres: Array<any> = [
@@ -26,6 +29,8 @@ export class FilterComponent implements OnInit {
     {name: "Comedy", value: 'comedy'},
     {name: "Thriller", value: 'thriller'}
   ];
+
+  public ratings: string[] = ['0','1','2','3','4','5','6','7','8','9','10'];
 
   constructor(
     private fb: FormBuilder, 
@@ -39,9 +44,9 @@ export class FilterComponent implements OnInit {
     const formArray: FormArray = this.filtersForm.get('Genre') as FormArray;
   
     /* Selected */
-    if(event.target.checked){
+    if(event.checked){
       // Add a new control in the arrayForm
-      formArray.push(new FormControl(event.target.value));
+      formArray.push(new FormControl(event.source.value));
     }
     /* unselected */
     else{
@@ -49,7 +54,7 @@ export class FilterComponent implements OnInit {
       let i: number = 0;
   
       formArray.controls.forEach((ctrl: any) => {
-        if(ctrl.value == event.target.value) {
+        if(ctrl.value == event.source.value) {
           // Remove the unselected element from the arrayForm
           formArray.removeAt(i);
           return;
@@ -64,9 +69,24 @@ export class FilterComponent implements OnInit {
     //TODO: error handling/assertions?
     this.rs.filters.title_type = this.filtersForm.get('TVorMovie')?.value!;
     this.rs.filters.genres = this.filtersForm.get('Genre')?.value! as string[];
-    this.rs.filters.user_rating = this.filtersForm.get('Rating')?.value!;
-    this.rs.filters.moviemeter = this.filtersForm.get('Runtime')?.value!;
-    this.rs.filters.release_date = this.filtersForm.get('ReleaseDate')?.value!;
+    
+    let minRating = this.filtersForm.get('MinRating')?.value;
+    let maxRating = this.filtersForm.get('MaxRating')?.value;
+    if(minRating !== '' || maxRating !== ''){
+      this.rs.filters.user_rating = `${minRating},${maxRating}`;
+    } 
+
+    let minRuntime = this.filtersForm.get('MinRuntime')?.value;
+    let maxRuntime = this.filtersForm.get('MaxRuntime')?.value;
+    if(minRuntime !== '' || maxRuntime !== ''){
+      this.rs.filters.runtime = `${minRuntime},${maxRuntime}`;
+    }
+    
+    let minReleaseDate = this.filtersForm.get('MinReleaseDate')?.value;
+    let maxReleaseDate = this.filtersForm.get('MaxReleaseDate')?.value;
+    if(minReleaseDate !== '' || maxReleaseDate !== ''){
+      this.rs.filters.release_date = `${minReleaseDate},${maxReleaseDate}`;
+    }
   }
 
   onSubmit(): void{
