@@ -11,6 +11,7 @@ import { Suggestion } from '../suggestion';
 export class ResultsComponent implements OnInit {
 
   results: Suggestion[] = [];
+  choices: number[] = [];
 
   constructor(private rs: RecommenderService) { }
 
@@ -33,11 +34,11 @@ export class ResultsComponent implements OnInit {
 
     this.rs.getResults().
     subscribe(response => {
-      let choices = this.generateChoices(numChoices, response.results.length);
-      console.log(`these are the choices: ${choices}`);
-      for(let i = 0; i < choices.length; i++) {
-        this.results!.push(response.results[choices[i]]);
-        console.log(`This is option ${i+1}: ${response.results[choices[i]].title}`);
+      this.choices = this.generateChoices(numChoices, response.results.length);
+      console.log(response.results[this.choices[0]]);
+      for(let i = 0; i < this.choices.length; i++) {
+        this.results!.push(response.results[this.choices[i]]);
+        console.log(`This is option ${i+1}: ${response.results[this.choices[i]].title}`);
       }
     });
   }

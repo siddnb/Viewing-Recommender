@@ -47,11 +47,12 @@ export class RecommenderService {
 
     //Remove the extraneous '&' at the end of the query
     //TODO: Make this actually work
-    if(query[-1]==='&'){
-      query.slice(0, query.length - 1);
+    if(query.slice(-1)==='&'){
+      query = query.slice(0, query.length - 1);
     }
 
     console.log(`this is the query: ${query}`)
+    //console.log(query[-1]);
     return query;
   }
 

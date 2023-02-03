@@ -1,10 +1,39 @@
-<h2>The results</h2>
+<h1>The results</h1>
+
 <ul *ngIf="results">
-  <li *ngFor="let result of results">
+    <div class="container">
+  <div *ngFor="let result of results" class="result">
     <!--TODO: Trim title if it has "See full summary" at the end-->
-    <p class="badge">{{result.title}}: {{result.description}}</p>
-    <p class="name">{{result.plot}}</p>
-  </li>
+    
+            <div class="desc">
+                <h2>{{result.title}} </h2>
+                <span>{{result.description}}</span>
+            </div>
+            <div class="imgbox">
+                <img src={{result.image}} alt="Missing Image">
+            </div>
+            <div class="details">
+                <div>
+                    <b>Actors: </b>
+                    <span *ngFor="let star of result.starList;
+                                let isLast = last">
+                        <!-- if it's the last actor then no comma to seperate -->
+                        <span *ngIf="isLast; else default">{{star.name}}</span>
+                        <ng-template #default>{{star.name}}, </ng-template>
+                    </span>
+                </div>
+                <b>Rating: </b>
+                <span>{{result.imDbRating}}</span>
+                <br>
+                <b>Runtime: </b>
+                <span>{{result.runtimeStr}}</span>
+                <p>
+                    <b>Synopsis: </b>
+                    {{result.plot}}
+                </p>
+            </div>
+            
+        </div>
+    </div>  
 </ul>
 
-<button type="button" routerLink="/home">Go Back</button>

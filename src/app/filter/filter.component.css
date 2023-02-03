@@ -1,1 +1,17 @@
+/* .container{
+    margin: auto;
+    max-width: fit-content;
+} */
 
+.genres {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50vw;
+}
+.genres>* {
+    flex: 1 1 25%;
+}
+
+#filter-form > mat-form-field{
+    margin-left: 8px;
+}

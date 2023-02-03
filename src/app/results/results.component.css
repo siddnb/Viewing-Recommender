@@ -1,0 +1,44 @@
+/* flex box for the results */
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+.container .result {
+    flex: 0 0 31%;
+    height: 55vh;
+    margin: 1%;
+}
+
+.result{
+    display: grid; 
+    grid-template-columns: 55% 45%;
+    grid-template-rows: 8vh 40vh;
+}
+
+/* Title and dates */
+.desc{
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: baseline;
+}
+
+.desc > h2{
+    margin: 1%;
+}
+
+.imgbox{
+    grid-column: 1 / 2;
+
+}
+
+.imgbox > img{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.details{
+    grid-column: 2 / 3;
+    align-items: flex-start;
+}

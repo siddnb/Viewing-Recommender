@@ -1,27 +1,15 @@
 # ViewingRecommender
 
+Tired of spending ages to choose what to watch just to end up watching the same old show for the 20th time?
+Using this website you're just a few clicks away from figuring out what you're watching next!
+
+## Instructions
+Input as many or as few filters as you want (input at least one) and then click submit
+<img src="../images/filters.jpg" title="Example of using the filters">
+
+On the next screen you'll find some recommendations just for you!
+<img src="../images/recommendations.jpg" title="Sample results">
+
+Don't waste your evenings facing decision paralysis, enjoy!
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

@@ -1,17 +1,26 @@
-<h2>Choose from the following filters to get up to 5 recommendations.</h2>
+<div class="container">
+    <h2>Choose from the following filters to get recommendations.</h2>
 
 <form id="filter-form" [formGroup]="filtersForm" (ngSubmit)="onSubmit()">
 
-    <mat-radio-group formControlName="TVorMovie">
-        <mat-radio-button value="tv_series,documentary">TV Show </mat-radio-button>
-        <mat-radio-button value="feature,tv_movie">Movie </mat-radio-button>
-      </mat-radio-group>
+    <div>
+        <mat-radio-group formControlName="TVorMovie">
+            <mat-radio-button style="margin-right: 1vh" value="tv_series,documentary">TV Show </mat-radio-button>
+            <mat-radio-button value="feature,tv_movie">Movie </mat-radio-button>
+        </mat-radio-group>
+    </div>
 
-    <div *ngFor="let choice of genres; let i=index">
-          <mat-checkbox [value]="choice.value" (change)="onCheckChange($event)">
-            {{choice.name}}
+    <br>
+
+    <div class="genres">
+        <div *ngFor="let choice of genres;">
+            <mat-checkbox [value]="choice.value" (change)="onCheckChange($event)">
+                {{choice.name}}
             </mat-checkbox>
-      </div>
+        </div>
+    </div>
+
+    <br>
 
     <h4>Rating:</h4>
     <mat-form-field appearance="fill">
@@ -22,6 +31,7 @@
               </mat-option>
             </mat-select>
     </mat-form-field>
+
     <mat-form-field appearance="fill">
         <mat-label>Maximum Rating</mat-label>
         <mat-select formControlName="MaxRating">
@@ -30,30 +40,36 @@
               </mat-option>
             </mat-select>
     </mat-form-field>
-    <br><br>
 
-    <h4>Runtime:</h4>
+    <br>
+
+    <h4>Runtime (Minutes):</h4>
     <mat-form-field appearance="fill">
         <mat-label>Minimum Runtime</mat-label>
-        <input matInput type="number" formControlName="MinRuntime">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Maximum Runtime</mat-label>
-        <input matInput type="number" formControlName="MaxRuntime">
+        <input matInput formControlName="MinRuntime">
     </mat-form-field>
 
-    <h4>Release Date:</h4>
+    <mat-form-field appearance="fill">
+        <mat-label>Maximum Runtime</mat-label>
+        <input matInput formControlName="MaxRuntime">
+    </mat-form-field>
+
+    <h4>Release Date (Year):</h4>
     <mat-form-field appearance="fill">
         <mat-label>Minimum Year</mat-label>
         <input matInput placeholder="YYYY" formControlName="MinReleaseDate">
     </mat-form-field>
+
     <mat-form-field appearance="fill">
         <mat-label>Maximum Year</mat-label>
         <input matInput placeholder="YYYY" formControlName="MaxReleaseDate">
     </mat-form-field>
 
-    <p>Complete the form to enable button.</p>
-    <button type="submit" [disabled]="!filtersForm.valid">Submit</button>
+    <br>
+
+    <button style="margin-right: 1vh" type="submit" [disabled]="!filtersForm.valid">Submit</button>
+    <button type="reset">Reset</button>
   
 </form>
 
+</div>

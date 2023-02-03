@@ -26,11 +26,24 @@ export class FilterComponent implements OnInit {
 
   public genres: Array<any> = [
     {name: 'Action', value: 'action'},
-    {name: "Comedy", value: 'comedy'},
-    {name: "Thriller", value: 'thriller'}
+    {name: 'Adventure', value: 'adventure'},
+    {name: 'Animation', value: 'animation'},
+    {name: 'Comedy', value: 'comedy'},
+    {name: 'Crime', value: 'crime'},
+    {name: 'Documentary', value: 'documentary'},
+    {name: 'Family', value: 'family'},
+    {name: 'History', value: 'history'},
+    {name: 'Horror', value: 'horror'},
+    {name: 'Mystery', value: 'mystery'},
+    {name: 'Reality-TV', value: 'reality_tv'},
+    {name: 'Sci-Fi', value: 'sci_fi'},
+    {name: 'Sport', value: 'sport'},
+    {name: 'War', value: 'war'},
+    {name: 'Western', value: 'western'},
+    {name: 'Thriller', value: 'thriller'},
   ];
 
-  public ratings: string[] = ['0','1','2','3','4','5','6','7','8','9','10'];
+  public ratings: string[] = ['10','9','8','7','6','5','4','3','2','1','0'];
 
   constructor(
     private fb: FormBuilder, 
